@@ -1,6 +1,19 @@
-use rltk::{GameState, Rltk};
+use rltk::{GameState, Rltk, VirtualKeyCode, RGB};
+use specs::prelude::*;
+use specs_derive::Component;
+use std::cmp::{max, min};
+
+struct Position {
+    x: i32,
+    y: i32,
+}
+
+impl Component for Position {
+    type Storage = VecStorage<Self>;
+}
 
 struct State {}
+
 impl GameState for State {
     fn tick(&mut self, ctx: &mut Rltk) {
         ctx.cls();
